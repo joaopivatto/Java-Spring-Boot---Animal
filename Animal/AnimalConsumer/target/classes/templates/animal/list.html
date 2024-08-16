@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=no">
+    <title>List - Person</title>
+    <link rel="stylesheet" href="../button.css">
+    <link rel="stylesheet" href="../color.css">
+    <link rel="stylesheet" href="../font.css">
+    <link rel="stylesheet" href="../table.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            lucide.createIcons();
+        })
+    </script>
+</head>
+<body>
+<a th:href="@{/animal/new}"><i data-lucide="user-round-plus"></i>New Animal</a>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Data de Nascimento</th>
+        <th>Raça</th>
+        <th>Ações</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="animal : ${listAnimal}">
+        <td th:text="${animal.id}"/>
+        <td th:text="${animal.nome}"/>
+        <td th:text="${animal.dataNascimento}"/>
+        <td th:text="${animal.raca}"/>
+        <td>
+            <a th:href="@{/animal/edit(id=${animal.id})}"><i data-lucide="user-round-pen"></i>Edit Animal</a>
+            <a th:href="@{/animal/delete(id=${animal.id})}"><i data-lucide="user-round-x"></i>Delete Animal</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>

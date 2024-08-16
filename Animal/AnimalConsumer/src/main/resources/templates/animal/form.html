@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, shrink-to-fit=no">
+    <title>Form - Person</title>
+    <link rel="stylesheet" href="../button.css">
+    <link rel="stylesheet" href="../color.css">
+    <link rel="stylesheet" href="../font.css">
+    <link rel="stylesheet" href="../input.css">
+    <link rel="stylesheet" href="../table.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            lucide.createIcons();
+        })
+    </script>
+</head>
+<body>
+<a th:href="@{/animal}"><i data-lucide="arrow-left"></i>Back</a>
+<form th:object="${animal}" th:action="@{/animal/save}" method="POST">
+    <input150>
+        <label>ID:</label>
+        <input type="text" th:field="*{id}" readonly>
+    </input150>
+    <input150>
+        <label>Nome:</label>
+        <input type="text" th:field="*{nome}">
+    </input150>
+    <input150>
+        <label>Data de Nascimento:</label>
+        <input type="date" th:field="*{dataNascimento}">
+    </input150>
+    <input150>
+        <label>Raça:</label>
+        <input type="text" th:field="*{raca}">
+    </input150>
+    <button type="submit"><i data-lucide="save"></i>Save Animal</button>
+</form>
+</body>
+</html>
